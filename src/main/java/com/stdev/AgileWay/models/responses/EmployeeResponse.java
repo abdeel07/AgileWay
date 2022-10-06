@@ -1,9 +1,5 @@
 package com.stdev.AgileWay.models.responses;
 
-import java.util.Set;
-
-import com.stdev.AgileWay.entities.Employee;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,13 +11,15 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class TeamResponse {
+public class EmployeeResponse {
 
 	private Long id;
 	
-	private String teamName;
+	private String firstName;
 	
-	private String description;
+	private String lastName;
 	
-	private Set<Employee> employees;
+	private String email;
+	
+	private String phoneNumber;
 }
