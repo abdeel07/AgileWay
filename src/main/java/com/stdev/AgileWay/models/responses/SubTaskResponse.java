@@ -1,6 +1,6 @@
 package com.stdev.AgileWay.models.responses;
 
-import java.util.Set;
+import com.stdev.AgileWay.entities.enums.EStatus;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,15 +13,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class TeamResponse {
+public class SubTaskResponse {
 
 	private Long id;
 	
-	private String teamName;
+	public String title;
 	
-	private String description;
-	
-	private Set<EmployeeResponse> employees;
-	
-	private Set<TaskResponse> tasks;
+	private EStatus status;
 }

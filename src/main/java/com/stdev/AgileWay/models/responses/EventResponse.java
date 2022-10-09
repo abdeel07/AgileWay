@@ -1,6 +1,8 @@
 package com.stdev.AgileWay.models.responses;
 
-import java.util.Set;
+import java.util.Date;
+
+import com.stdev.AgileWay.entities.enums.EType;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,15 +15,13 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class TeamResponse {
+public class EventResponse {
 
 	private Long id;
 	
-	private String teamName;
+	private EType type;
 	
-	private String description;
+	private Date date;
 	
-	private Set<EmployeeResponse> employees;
-	
-	private Set<TaskResponse> tasks;
+	private String employeeName;
 }
