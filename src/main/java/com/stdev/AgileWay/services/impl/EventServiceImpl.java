@@ -2,12 +2,15 @@ package com.stdev.AgileWay.services.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.stdev.AgileWay.exceptions.AlreadyExistException;
 import com.stdev.AgileWay.exceptions.NotFoundException;
 import com.stdev.AgileWay.models.requests.EventRequest;
 import com.stdev.AgileWay.models.responses.EventResponse;
 import com.stdev.AgileWay.services.EventService;
 
+@Service
 public class EventServiceImpl implements EventService {
 
 	@Override

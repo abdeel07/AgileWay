@@ -1,5 +1,6 @@
 package com.stdev.AgileWay.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -9,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -35,9 +37,12 @@ public class SubTask {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Size(min = 2, max = 70)
+	@Column(nullable = false)
 	public String title;
 	
 	@Enumerated(EnumType.STRING)
+	@Column(nullable = false)
 	private EStatus status;
 	
 	@ManyToOne

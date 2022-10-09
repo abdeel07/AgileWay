@@ -2,6 +2,7 @@ package com.stdev.AgileWay.entities;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -36,8 +37,10 @@ public class Event {
 	private Long id;
 	
 	@Enumerated(EnumType.STRING)
+	@Column(nullable = false)
 	private EType type;
 	
+	@Column(nullable = false)
 	private Date date;
 	
 	@ManyToOne

@@ -20,5 +20,5 @@ public interface EventMapper {
 	
 	EventResponse eventToEventResponse(Event event);
 	
-	List<EventResponse> mapListEvent(List<Event> events);
+	List<EventResponse> mapEvent(List<Event> events);
 }

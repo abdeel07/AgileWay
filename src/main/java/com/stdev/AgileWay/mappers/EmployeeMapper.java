@@ -20,5 +20,5 @@ public interface EmployeeMapper {
 	
 	EmployeeResponse employeeToEmployeeResponse(Employee employee);
 	
-	List<EmployeeResponse> mapListEmployee(List<Employee> employees);
+	List<EmployeeResponse> mapEmployee(List<Employee> employees);
 }

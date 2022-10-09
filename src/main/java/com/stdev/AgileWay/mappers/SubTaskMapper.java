@@ -20,5 +20,5 @@ public interface SubTaskMapper {
 	
 	SubTaskResponse subTaskToSubTaskResponse(SubTask subTask);
 	
-	List<SubTaskResponse> mapListSubTask(List<SubTask> subTasks);
+	List<SubTaskResponse> mapSubTask(List<SubTask> subTasks);
 }

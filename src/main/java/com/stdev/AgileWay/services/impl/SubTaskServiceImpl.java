@@ -2,12 +2,15 @@ package com.stdev.AgileWay.services.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.stdev.AgileWay.exceptions.AlreadyExistException;
 import com.stdev.AgileWay.exceptions.NotFoundException;
 import com.stdev.AgileWay.models.requests.SubTaskRequest;
 import com.stdev.AgileWay.models.responses.SubTaskResponse;
 import com.stdev.AgileWay.services.SubTaskService;
 
+@Service
 public class SubTaskServiceImpl implements SubTaskService {
 
 	@Override

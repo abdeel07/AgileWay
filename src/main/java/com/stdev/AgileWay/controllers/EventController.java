@@ -19,49 +19,48 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.stdev.AgileWay.exceptions.AlreadyExistException;
 import com.stdev.AgileWay.exceptions.NotFoundException;
-import com.stdev.AgileWay.models.requests.EmployeeRequest;
-import com.stdev.AgileWay.models.responses.EmployeeResponse;
-import com.stdev.AgileWay.services.EmployeeService;
+import com.stdev.AgileWay.models.requests.EventRequest;
+import com.stdev.AgileWay.models.responses.EventResponse;
+import com.stdev.AgileWay.services.EventService;
 
 @RestController
-@RequestMapping("/api/employee")
+@RequestMapping("/api/event")
 @CrossOrigin(origins = { "http://localhost:4200" })
-public class EmployeeController {
+public class EventController {
 
 	@Autowired
-	EmployeeService employeeService;
+	EventService eventService;
 	
 	@PostMapping
-	public ResponseEntity<EmployeeResponse> add(@RequestBody @Valid EmployeeRequest employeeRequest)
+	public ResponseEntity<EventResponse> add(@RequestBody @Valid EventRequest eventRequest)
 			throws AlreadyExistException{
-		EmployeeResponse response = employeeService.add(employeeRequest);
+		EventResponse eventResponse = eventService.add(eventRequest);
 		
-		return new ResponseEntity<EmployeeResponse>(response, HttpStatus.OK);
+		return new ResponseEntity<EventResponse>(eventResponse, HttpStatus.OK);
 	}
 	
 	@GetMapping("/all")
-	public ResponseEntity<List<EmployeeResponse>> getAll(){
-		return new ResponseEntity<List<EmployeeResponse>>(employeeService.getAll(), HttpStatus.OK);
+	public ResponseEntity<List<EventResponse>> getAll(){
+		return new ResponseEntity<List<EventResponse>>(eventService.getAll(),HttpStatus.OK);
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<EmployeeResponse> get(@PathVariable Long id)
+	public ResponseEntity<EventResponse> get(@PathVariable Long id)
 			throws NotFoundException{
-		return new ResponseEntity<EmployeeResponse>(employeeService.get(id), HttpStatus.OK);
+		return new ResponseEntity<EventResponse>(eventService.get(id),HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<String> delete(@PathVariable Long id) 
+	public ResponseEntity<String> delete(@PathVariable Long id)
 			throws NotFoundException{
-		employeeService.delete(id);
+		eventService.delete(id);
 		return new ResponseEntity<String>("Deleted !", HttpStatus.OK);
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<EmployeeResponse> update(@PathVariable Long id, @RequestBody @Valid
-			EmployeeRequest employeeRequest) throws NotFoundException{
-		
-		return new ResponseEntity<EmployeeResponse>(employeeService.update(id, employeeRequest),
+	public ResponseEntity<EventResponse> update(@PathVariable Long id,
+			@RequestBody @Valid EventRequest eventRequest) throws NotFoundException{
+		return new ResponseEntity<EventResponse>(eventService.update(id, eventRequest),
 				HttpStatus.OK);
 	}
 }

@@ -19,49 +19,47 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.stdev.AgileWay.exceptions.AlreadyExistException;
 import com.stdev.AgileWay.exceptions.NotFoundException;
-import com.stdev.AgileWay.models.requests.EmployeeRequest;
-import com.stdev.AgileWay.models.responses.EmployeeResponse;
-import com.stdev.AgileWay.services.EmployeeService;
+import com.stdev.AgileWay.models.requests.SubTaskRequest;
+import com.stdev.AgileWay.models.responses.SubTaskResponse;
+import com.stdev.AgileWay.services.SubTaskService;
 
 @RestController
-@RequestMapping("/api/employee")
+@RequestMapping("/api/subtask")
 @CrossOrigin(origins = { "http://localhost:4200" })
-public class EmployeeController {
+public class SubTaskController {
 
 	@Autowired
-	EmployeeService employeeService;
+	SubTaskService service;
 	
 	@PostMapping
-	public ResponseEntity<EmployeeResponse> add(@RequestBody @Valid EmployeeRequest employeeRequest)
+	public ResponseEntity<SubTaskResponse> add(@RequestBody @Valid SubTaskRequest request)
 			throws AlreadyExistException{
-		EmployeeResponse response = employeeService.add(employeeRequest);
+		SubTaskResponse response = service.add(request);
 		
-		return new ResponseEntity<EmployeeResponse>(response, HttpStatus.OK);
+		return new ResponseEntity<SubTaskResponse>(response, HttpStatus.OK);
 	}
 	
 	@GetMapping("/all")
-	public ResponseEntity<List<EmployeeResponse>> getAll(){
-		return new ResponseEntity<List<EmployeeResponse>>(employeeService.getAll(), HttpStatus.OK);
+	public ResponseEntity<List<SubTaskResponse>> getAll(){
+		return new ResponseEntity<List<SubTaskResponse>>(service.getAll(), HttpStatus.OK);
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<EmployeeResponse> get(@PathVariable Long id)
-			throws NotFoundException{
-		return new ResponseEntity<EmployeeResponse>(employeeService.get(id), HttpStatus.OK);
+	public ResponseEntity<SubTaskResponse> get(@PathVariable Long id)
+			throws NotFoundException {
+		return new ResponseEntity<SubTaskResponse>(service.get(id), HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<String> delete(@PathVariable Long id) 
+	public ResponseEntity<String> delete(@PathVariable Long id)
 			throws NotFoundException{
-		employeeService.delete(id);
+		service.delete(id);
 		return new ResponseEntity<String>("Deleted !", HttpStatus.OK);
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<EmployeeResponse> update(@PathVariable Long id, @RequestBody @Valid
-			EmployeeRequest employeeRequest) throws NotFoundException{
-		
-		return new ResponseEntity<EmployeeResponse>(employeeService.update(id, employeeRequest),
-				HttpStatus.OK);
+	public ResponseEntity<SubTaskResponse> update(@PathVariable Long id,
+			@RequestBody @Valid SubTaskRequest request) throws NotFoundException{
+		return new ResponseEntity<SubTaskResponse>(service.update(id, request),HttpStatus.OK);
 	}
 }

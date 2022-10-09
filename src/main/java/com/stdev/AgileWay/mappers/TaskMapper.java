@@ -20,5 +20,5 @@ public interface TaskMapper {
 	
 	TaskResponse taskToTaskResponse(Task task);
 	
-	List<Task> mapListTask(List<Task> tasks);
+	List<Task> mapTask(List<Task> tasks);
 }
