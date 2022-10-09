@@ -41,4 +41,8 @@ public class Team {
 	@JsonManagedReference(value="team-employee")
 	@OneToMany(mappedBy = "team")
 	private Set<Employee> employees;
+	
+	@JsonManagedReference(value="team-task")
+	@OneToMany(mappedBy = "team")
+	private Set<Task> tasks;
 }
