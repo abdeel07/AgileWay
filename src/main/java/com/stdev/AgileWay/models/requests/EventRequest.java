@@ -27,4 +27,7 @@ public class EventRequest {
 	
 	@Column(nullable = false)
 	private Long employeeId;
+	
+	@Column(nullable = false)
+	private Long taskId;
 }

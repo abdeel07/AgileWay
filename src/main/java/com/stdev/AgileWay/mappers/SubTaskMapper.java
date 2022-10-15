@@ -16,7 +16,7 @@ public interface SubTaskMapper {
 
 	SubTaskMapper INSTANCE = Mappers.getMapper(SubTaskMapper.class);
 	
-	SubTask subTaskToSubTask(SubTaskRequest request);
+	SubTask subTaskRequestToSubTask(SubTaskRequest request);
 	
 	SubTaskResponse subTaskToSubTaskResponse(SubTask subTask);
 	

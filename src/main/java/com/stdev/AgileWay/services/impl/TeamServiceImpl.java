@@ -69,8 +69,7 @@ public class TeamServiceImpl implements TeamService {
 		findTeam.get().setDescription(teamRequest.getDescription());
 		findTeam.get().setTeamName(teamRequest.getTeamName());
 		
-		teamRepository.save(findTeam.get());
-		return TeamMapper.INSTANCE.teamToTeamResponse(findTeam.get());
+		return TeamMapper.INSTANCE.teamToTeamResponse(teamRepository.save(findTeam.get()));
 	}
 
 }

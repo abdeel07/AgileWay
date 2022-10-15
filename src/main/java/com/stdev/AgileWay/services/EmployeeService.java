@@ -1,6 +1,9 @@
 package com.stdev.AgileWay.services;
 
 import java.util.List;
+import java.util.Map;
+
+import org.springframework.data.domain.Pageable;
 
 import com.stdev.AgileWay.exceptions.AlreadyExistException;
 import com.stdev.AgileWay.exceptions.NotFoundException;
@@ -18,4 +21,6 @@ public interface EmployeeService {
 	void delete(Long id) throws NotFoundException;
 	
 	EmployeeResponse update(Long id, EmployeeRequest employeeRequest) throws NotFoundException;
+	
+	Map<String, Object> searchByName(String lastName, Pageable pageable);
 }

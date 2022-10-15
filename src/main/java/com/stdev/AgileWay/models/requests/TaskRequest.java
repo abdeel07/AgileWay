@@ -42,4 +42,7 @@ public class TaskRequest {
 	
 	@Column(nullable = false)
 	private EStatus status;
+	
+	@Column(nullable = false)
+	private Long teamId;
 }
