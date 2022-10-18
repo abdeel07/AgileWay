@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
 import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.OnDelete;
@@ -84,4 +85,9 @@ public class Task {
 	@JsonManagedReference(value="sub-task")
 	@OneToMany(mappedBy = "task")
 	private Set<SubTask> subTasks;
+	
+	@PrePersist
+	private void onCreate() {
+		this.creationDate = new Date();
+	}
 }

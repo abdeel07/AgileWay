@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -54,4 +55,9 @@ public class Event {
 	@JsonBackReference(value="task-event")
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Task task;
+	
+	@PrePersist
+	private void onCreate() {
+		this.date = new Date();
+	}
 }
