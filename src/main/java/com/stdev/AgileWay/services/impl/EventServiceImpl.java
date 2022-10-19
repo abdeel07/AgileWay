@@ -46,7 +46,15 @@ public class EventServiceImpl implements EventService {
 	@Override
 	public List<EventResponse> getAll() {
 		
-		return EventMapper.INSTANCE.mapEvent(eventRepository.findAll());
+		List<EventResponse> events =  EventMapper.INSTANCE.mapEvent(eventRepository.findAll());
+		List<Event> e = eventRepository.findAll();
+		
+		for (int i = 0; i < events.size(); i++) {
+			events.get(i).setEmployeeName(e.get(i).getEmployee().getLastName()
+					+ " " + e.get(i).getEmployee().getFirstName());
+		}
+		
+		return events;
 	}
 
 	@Override

@@ -45,4 +45,7 @@ public class TaskRequest {
 	
 	@Column(nullable = false)
 	private Long teamId;
+	
+	@Column(nullable = false)
+	private Long employeeId;
 }

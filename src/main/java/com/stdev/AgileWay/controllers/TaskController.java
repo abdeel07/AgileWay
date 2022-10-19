@@ -62,7 +62,7 @@ public class TaskController {
 	@PutMapping("/{id}")
 	public ResponseEntity<TaskResponse> update(@PathVariable Long id, 
 			@RequestBody @Valid TaskRequest taskRequest) 
-					throws NotFoundException{
+					throws NotFoundException, AlreadyExistException{
 		
 		return new ResponseEntity<TaskResponse>(taskService.update(id, taskRequest), HttpStatus.OK);
 	}

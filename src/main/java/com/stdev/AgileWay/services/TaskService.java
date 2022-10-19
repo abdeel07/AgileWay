@@ -17,5 +17,5 @@ public interface TaskService {
 	
 	void delete(Long id) throws NotFoundException;
 	
-	TaskResponse update(Long id, TaskRequest taskRequest) throws NotFoundException;
+	TaskResponse update(Long id, TaskRequest taskRequest) throws NotFoundException, AlreadyExistException;
 }
